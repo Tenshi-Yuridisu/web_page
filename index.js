@@ -1,18 +1,19 @@
-const num1 = document.getElementById('num1').value,
-      num2 = document.getElementById('num2').value,
+const num1Input = document.getElementById('num1'),
+      num2Input = document.getElementById('num2'),
       parrafo = document.getElementById('result'),
-     acept = document.getElementById('acept');
+      acept = document.getElementById('acept');
 
-    acept.document.geteventListener('click', function(){
+// El método correcto es addEventListener y se aplica directamente al botón.
+acept.addEventListener('click', function(){
 
-        const a = parseInt(num1);
-        const b = parseInt(num2);
+    // Obtenemos el valor de los inputs DENTRO de la función, cuando el usuario hace clic.
+    const a = parseInt(num1Input.value);
+    const b = parseInt(num2Input.value);
 
-        if (!isNaN(a) && !isNaN(b)) {
-            const mtpc = a * b;
-            parrafo.innerText = "El resultado es: " + mtpc;
-        } else {
-            parrafo.innerText = "Por favor, ingrese números válidos.";
-        }
-    });
-
+    if (!isNaN(a) && !isNaN(b)) {
+        const mtpc = a * b;
+        parrafo.innerText = "El resultado es: " + mtpc;
+    } else {
+        parrafo.innerText = "Por favor, ingrese números válidos.";
+    }
+});
